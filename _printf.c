@@ -10,8 +10,6 @@
 int _printf(const char *format, ...)
 {
 	int output_count = 0;
-	int str_len;
-	char c, *str;
 	va_list ap;
 
 	if (format == NULL)
@@ -31,14 +29,15 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == 'c')
 			{
-				c = va_arg(ap, int);
+				char c = va_arg(ap, int);
+
 				write(1, &c, 1);
 				output_count++;
 			}
 			if (*format == 's')
 			{
-				str = va_arg(ap, char*);
-				str_len = 0;
+				char *str = va_arg(ap, char*);
+				int str_len = 0;
 
 				while (str[str_len] != '\0')
 					str_len++;
