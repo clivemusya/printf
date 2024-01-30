@@ -50,8 +50,6 @@ int _printf(const char *format, ...)
 				write(1, format, 1);
 				output_count++;
 			}
-			if (*format == '\0')
-				break;
 		}
 
 		format++;
